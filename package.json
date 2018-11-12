@@ -1,0 +1,33 @@
+{
+  "name": "project_bg",
+  "version": "0.0.1",
+  "description": "Brain Games",
+  "main": "index.js",
+  "bin": {
+    "brain-games": "dist/bin/brain-games.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "brain-games",
+    "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Redxnel/project-lvl1-s380.git"
+  },
+  "author": "Redxnel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Redxnel/project-lvl1-s380/issues"
+  },
+  "homepage": "https://github.com/Redxnel/project-lvl1-s380#readme",
+  "dependencies": {
+    "@babel/cli": "^7.1.5",
+    "@babel/core": "^7.1.5",
+    "@babel/node": "^7.0.0",
+    "@babel/preset-env": "^7.1.5"
+  }
+}
