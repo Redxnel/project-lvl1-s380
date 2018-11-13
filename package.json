@@ -1,8 +1,8 @@
 {
   "name": "project_bg",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Brain Games",
-  "main": "index.js",
+  "main": "dist/index.js",
   "bin": {
     "brain-games": "dist/bin/brain-games.js"
   },
@@ -25,16 +25,24 @@
   },
   "homepage": "https://github.com/Redxnel/project-lvl1-s380#readme",
   "dependencies": {
+    "readline-sync": "^1.4.9"
+  },
+  "devDependencies": {
     "@babel/cli": "^7.1.5",
     "@babel/core": "^7.1.5",
     "@babel/node": "^7.0.0",
     "@babel/preset-env": "^7.1.5",
-    "readline-sync": "^1.4.9"
-  },
-  "devDependencies": {
     "babel-eslint": "^10.0.1",
     "eslint": "^5.9.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0"
-  }
+  },
+  "keywords": [
+    "brain",
+    "eveness",
+    "games",
+    "logic",
+    "math",
+    "mathematics"
+  ]
 }
