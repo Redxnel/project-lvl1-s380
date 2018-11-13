@@ -1,18 +1,12 @@
 ---
 
-plugins: 
-  - brain-games
-  - babel
-
 env:
   node: true
-  brain-games: true
 
 parser: babel-eslint
 
 extends:
   - 'airbnb-base'
-  - 'plugin: brain-games/recommended'
 
 rules:
   no-console: 0

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-import { gamerName } from '..';
+import gamerAnswer from '..';
 
 console.log('Welcome to the Brain Games!\n');
 
-console.log(`Hello, ${gamerName()}!`);
+console.log(`Hello, ${gamerAnswer()}!`);
