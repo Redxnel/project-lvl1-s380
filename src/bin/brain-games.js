@@ -1,6 +1,8 @@
 #!/usr/bin/env node
-import gamerAnswer from '..';
+import { gamerName } from '..';
 
-console.log('Welcome to the Brain Games!\n');
-
-console.log(`Hello, ${gamerAnswer()}!`);
+console.log('Welcome to the Brain Games!');
+console.log('Answer "yes" if number even otherwise answer "no".\n');
+const name = gamerName();
+console.log(`Hello, ${name}!\n`);
+export default name;

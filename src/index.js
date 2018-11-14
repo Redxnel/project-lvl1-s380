@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync';
 
-const gamerAnswer = () => readlineSync.question('May I have your name?: ');
+export const gamerName = () => readlineSync.question('May I have your name?: ');
 
-export default gamerAnswer;
+export const gamerAnswer = () => readlineSync.question('Your answer: ');
