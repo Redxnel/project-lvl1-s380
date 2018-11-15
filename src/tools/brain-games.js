@@ -11,7 +11,7 @@ const selectGame = (gameRule, game, rightAnswer) => {
     const question = game();
     console.log(`Question: ${question}`);
     const answer = gamerAnswer();
-    if (rightAnswer(question) === answer) {
+    if (String(rightAnswer(question)) === answer) {
       console.log('Correct!');
     } else {
       console.log(`'${answer}' is wrong answer :(. Correct answer was '${rightAnswer(question)}')`);
