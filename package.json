@@ -1,6 +1,6 @@
 {
   "name": "project_bg",
-  "version": "3.3.1",
+  "version": "3.3.2",
   "description": "Brain Games",
   "bin": {
     "brain-even": "dist/bin/brain-even.js",
