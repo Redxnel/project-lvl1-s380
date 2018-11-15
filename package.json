@@ -3,8 +3,7 @@
   "version": "3.0.0",
   "description": "Brain Games",
   "bin": {
-    "brain-games": "dist/bin/brain-games.js",
-    "brain-even": "dist/bin/games/brain-even.js"
+    "brain-even": "dist/bin/brain-even.js"
   },
   "files": [
     "dist"

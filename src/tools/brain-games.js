@@ -15,13 +15,10 @@ const selectGame = (gameRule, game, rightAnswer) => {
       console.log('Correct!');
     } else {
       console.log(`'${answer}' is wrong answer :(. Correct answer was '${rightAnswer(question)}')`);
-      console.log(`let\`s try again, ${name}!`);
-      break;
-    }
-    if (i === 2) {
-      console.log(`Congratulations, ${name}!`);
+      return console.log(`Let\`s try again, ${name}!`);
     }
   }
+  return console.log(`Congratulations, ${name}!`);
 };
 
 export default selectGame;
