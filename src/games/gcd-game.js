@@ -4,7 +4,6 @@ import { randomDigit } from '..';
 import runGame from '../brain-games';
 
 const gameRule = 'Find the greatest common divisor of given numbers.';
-const smallestDivisor = 1;
 
 const generateGameData = () => {
   const number1 = randomDigit(100, 1);
@@ -12,15 +11,15 @@ const generateGameData = () => {
 
   const question = `${number1} ${number2}`;
 
-  const gcd = (num1, num2) => {
-    let divisor = num1 < num2 ? num1 : num2;
-    for (let i = divisor; i >= smallestDivisor; i -= 1) {
-      if (num1 % i === 0 && num2 % i === 0) {
-        divisor = i;
-        break;
+  const gcd = (digit1, digit2) => {
+    const divisor = digit1 < digit2 ? digit1 : digit2;
+    const greatDivisor = (num1, num2, div) => {
+      if (num1 % div === 0 && num2 % div === 0) {
+        return div;
       }
-    }
-    return divisor;
+      return greatDivisor(num1, num2, div - 1);
+    };
+    return greatDivisor(digit1, digit2, divisor);
   };
 
   const rightAnswer = gcd(number1, number2);
