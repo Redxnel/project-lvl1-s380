@@ -1,34 +1,32 @@
 #!/usr/bin/env node
 import { cons } from 'hexlet-pairs';
-import { randomDigit, randomPosition } from '../utils/random';
-import selectGame from '../brain-games';
+import { randomDigit } from '..';
+import runGame from '../brain-games';
 
 const gameRule = 'What is the result of the expression?';
 
 const operation = '+-*';
 
-const runGame = () => {
-  const game = () => {
-    const number1 = randomDigit(1, 100);
-    const number2 = randomDigit(1, 100);
-    const position = randomPosition(operation.length);
-    const question = `${number1} ${operation[position]} ${number2}`;
-    let rightAnswer = 0;
-    switch (operation[position]) {
-      case '+':
-        rightAnswer = number1 + number2;
-        break;
-      case '-':
-        rightAnswer = number1 - number2;
-        break;
-      default:
-        rightAnswer = number1 * number2;
-        break;
-    }
-    return cons(question, rightAnswer);
-  };
-
-  selectGame(gameRule, game);
+const generateGameData = () => {
+  const number1 = randomDigit(100);
+  const number2 = randomDigit(100);
+  const position = randomDigit(operation.length);
+  const question = `${number1} ${operation[position]} ${number2}`;
+  let rightAnswer = 0;
+  switch (operation[position]) {
+    case '+':
+      rightAnswer = number1 + number2;
+      break;
+    case '-':
+      rightAnswer = number1 - number2;
+      break;
+    default:
+      rightAnswer = number1 * number2;
+      break;
+  }
+  return cons(question, rightAnswer);
 };
 
-export default runGame;
+const game = () => runGame(gameRule, generateGameData);
+
+export default game;

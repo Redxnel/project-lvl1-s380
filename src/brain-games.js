@@ -4,16 +4,16 @@ import { gamerName, gamerAnswer } from '.';
 
 const quantityQuestions = 3;
 
-const selectGame = (gameRule, game) => {
+const runGame = (gameRule, generateGameData) => {
   console.log('Welcome to the Brain Games!');
   console.log(`${gameRule}\n`);
   const name = gamerName();
   console.log(`Hello, ${name}!\n`);
 
   for (let i = 0; i < quantityQuestions; i += 1) {
-    const pair = game();
-    const question = car(pair);
-    const rightAnswer = cdr(pair);
+    const gameExpression = generateGameData();
+    const question = car(gameExpression);
+    const rightAnswer = cdr(gameExpression);
 
     console.log(`Question: ${question}`);
     const answer = gamerAnswer();
@@ -28,4 +28,4 @@ const selectGame = (gameRule, game) => {
   console.log(`Congratulations, ${name}!`);
 };
 
-export default selectGame;
+export default runGame;

@@ -1,46 +1,33 @@
 #!/usr/bin/env node
 import { cons } from 'hexlet-pairs';
-import { randomDigit, randomPosition } from '../utils/random';
-import selectGame from '../brain-games';
+import { randomDigit } from '..';
+import runGame from '../brain-games';
 
 const gameRule = 'What number is missing in the progression?';
 
-const progressionLine = 9;
-const indexBeginStr = 0;
+const progressionLength = 10;
 
-const runGame = () => {
-  const game = () => {
-    let number = randomDigit(0, 100);
-    let line = `${number} `;
-    for (let i = 0; i < progressionLine; i += 1) {
-      number += 2;
-      line += `${number} `;
+const generateGameData = () => {
+  const firstElement = randomDigit(100);
+  const step = randomDigit(10);
+  const hiddenElementPosition = randomDigit(progressionLength);
+
+  let question = `${firstElement} `;
+  let rightAnswer = 0;
+  let element = firstElement;
+  for (let i = 0; i < progressionLength; i += 1) {
+    element += step;
+    if (i === hiddenElementPosition) {
+      rightAnswer = element;
+      question += '.. ';
+    } else {
+      question += `${element} `;
     }
+  }
 
-    const digitPosition = () => {
-      const position = randomPosition(line.length);
-      if (line[position - 1] === ' ' || position === indexBeginStr) {
-        return position;
-      }
-      return digitPosition();
-    };
-
-    let index = digitPosition();
-    let question = '';
-    let rightAnswer = '';
-    for (let j = 0; j < line.length; j += 1) {
-      if (j === index && line[j] !== ' ') {
-        rightAnswer += line[j];
-        question += '.';
-        index += 1;
-      } else {
-        question += line[j];
-      }
-    }
-    return cons(question, rightAnswer);
-  };
-
-  selectGame(gameRule, game);
+  return cons(question, rightAnswer);
 };
 
-export default runGame;
+const game = () => runGame(gameRule, generateGameData);
+
+export default game;

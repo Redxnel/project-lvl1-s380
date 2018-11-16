@@ -1,31 +1,32 @@
 #!/usr/bin/env node
 import { cons } from 'hexlet-pairs';
-import { randomDigit } from '../utils/random';
-import selectGame from '../brain-games';
+import { randomDigit } from '..';
+import runGame from '../brain-games';
 
 const gameRule = 'Find the greatest common divisor of given numbers.';
 
-const runGame = () => {
-  const game = () => {
-    const number1 = randomDigit(1, 100);
-    const number2 = randomDigit(1, 100);
+const generateGameData = () => {
+  const number1 = randomDigit(1, 100);
+  const number2 = randomDigit(1, 100);
 
-    const question = `${number1} ${number2}`;
+  const question = `${number1} ${number2}`;
 
-    const gcd = (digit1, digit2, divisor) => {
-      if (digit1 % divisor === 0 && digit2 % divisor === 0) {
-        return divisor;
+  const gcd = (digit1, digit2) => {
+    const divisor = digit1 < digit2 ? digit1 : digit2;
+    const greatDivisor = (num1, num2, div) => {
+      if (num1 % div === 0 && num2 % div === 0) {
+        return div;
       }
-      return gcd(digit1, digit2, divisor - 1);
+      return greatDivisor(num1, num2, div - 1);
     };
-
-    const number = number1 < number2 ? number1 : number2;
-    const rightAnswer = gcd(number1, number2, number);
-
-    return cons(question, rightAnswer);
+    return greatDivisor(digit1, digit2, divisor);
   };
 
-  selectGame(gameRule, game);
+  const rightAnswer = gcd(number1, number2);
+
+  return cons(question, rightAnswer);
 };
 
-export default runGame;
+const game = () => runGame(gameRule, generateGameData);
+
+export default game;
