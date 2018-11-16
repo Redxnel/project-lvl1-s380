@@ -1,19 +1,23 @@
 #!/usr/bin/env node
-import selectGame from '../tools/brain-games';
+import { cons } from 'hexlet-pairs';
+import { randomDigit } from '../utils/random';
+import selectGame from '../brain-games';
+
+const gameRule = 'Answer "yes" if number even otherwise answer "no".';
 
 const runGame = () => {
-  const gameRule = 'Answer "yes" if number even otherwise answer "no".';
-
-  const game = () => Math.floor(Math.random() * 100);
-
-  const rightAnswer = (number) => {
+  const game = () => {
+    const number = randomDigit(0, 100);
+    let rightAnswer = '';
     if (number % 2 === 0) {
-      return 'yes';
+      rightAnswer = 'yes';
+    } else {
+      rightAnswer = 'no';
     }
-    return 'no';
+    return cons(number, rightAnswer);
   };
 
-  selectGame(gameRule, game, rightAnswer);
+  selectGame(gameRule, game);
 };
 
 export default runGame;

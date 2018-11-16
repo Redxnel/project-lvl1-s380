@@ -1,32 +1,34 @@
 #!/usr/bin/env node
-import selectGame from '../tools/brain-games';
+import { cons } from 'hexlet-pairs';
+import { randomDigit, randomPosition } from '../utils/random';
+import selectGame from '../brain-games';
+
+const gameRule = 'What is the result of the expression?';
+
+const operation = '+-*';
 
 const runGame = () => {
-  const gameRule = 'What is the result of the expression?';
-
-  let result = 0;
-  const rightAnswer = () => result;
-
   const game = () => {
-    const number1 = Math.floor(Math.random() * 100);
-    const number2 = Math.floor(Math.random() * 100);
-    const operation = '+-*';
-    const position = Math.floor(Math.random() * operation.length);
+    const number1 = randomDigit(1, 100);
+    const number2 = randomDigit(1, 100);
+    const position = randomPosition(operation.length);
+    const question = `${number1} ${operation[position]} ${number2}`;
+    let rightAnswer = 0;
     switch (operation[position]) {
       case '+':
-        result = number1 + number2;
+        rightAnswer = number1 + number2;
         break;
       case '-':
-        result = number1 - number2;
+        rightAnswer = number1 - number2;
         break;
       default:
-        result = number1 * number2;
+        rightAnswer = number1 * number2;
         break;
     }
-    return `${number1} ${operation[position]} ${number2}`;
+    return cons(question, rightAnswer);
   };
 
-  selectGame(gameRule, game, rightAnswer);
+  selectGame(gameRule, game);
 };
 
 export default runGame;
