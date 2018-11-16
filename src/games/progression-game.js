@@ -15,7 +15,7 @@ const generateGameData = () => {
   let question = `${firstElement} `;
   let rightAnswer = 0;
   let element = firstElement;
-  for (let i = 0; i < progressionLength; i += 1) {
+  for (let i = 1; i < progressionLength; i += 1) {
     element += step;
     if (i === hiddenElementPosition) {
       rightAnswer = element;
