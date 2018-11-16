@@ -11,17 +11,14 @@ const smallestDivisor = 2;
 const generateGameData = () => {
   const number = randomDigit(100, firstPrimeNumber);
 
-  const isPrime = (digit) => {
-    const primeCheck = (num, divisor) => {
-      if (num === divisor) {
-        return 'yes';
-      }
-      return num % divisor === 0 ? 'no' : primeCheck(num, divisor + 1);
-    };
-    return primeCheck(digit, smallestDivisor);
+  const isPrime = (num, divisor) => {
+    if (num === divisor) {
+      return 'yes';
+    }
+    return num % divisor === 0 ? 'no' : isPrime(num, divisor + 1);
   };
 
-  const rightAnswer = isPrime(number);
+  const rightAnswer = isPrime(number, smallestDivisor);
 
   return cons(number, rightAnswer);
 };
