@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { cons } from 'hexlet-pairs';
-import { randomDigit } from '..';
+import randomDigit from '../utils';
 import runGame from '../brain-games';
 
 const gameRule = 'What number is missing in the progression?';
@@ -12,11 +12,11 @@ const generateGameData = () => {
   const step = randomDigit(10);
   const hiddenElementPosition = randomDigit(progressionLength);
 
-  let question = `${firstElement} `;
+  let question = '';
   let rightAnswer = 0;
-  let element = firstElement;
-  for (let i = 1; i < progressionLength; i += 1) {
-    element += step;
+  let element = 0;
+  for (let i = 0; i < progressionLength; i += 1) {
+    element = firstElement + step * i;
     if (i === hiddenElementPosition) {
       rightAnswer = element;
       question += '.. ';
@@ -25,9 +25,7 @@ const generateGameData = () => {
     }
   }
 
-  return cons(question, rightAnswer);
+  return cons(question, String(rightAnswer));
 };
 
-const game = () => runGame(gameRule, generateGameData);
-
-export default game;
+export default () => runGame(gameRule, generateGameData);

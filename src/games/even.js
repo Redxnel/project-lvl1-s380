@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { cons } from 'hexlet-pairs';
-import { randomDigit } from '..';
+import randomDigit from '../utils';
 import runGame from '../brain-games';
 
 const gameRule = 'Answer "yes" if number even otherwise answer "no".';
@@ -8,9 +8,8 @@ const gameRule = 'Answer "yes" if number even otherwise answer "no".';
 const generateGameData = () => {
   const number = randomDigit(100);
   const rightAnswer = number % 2 === 0 ? 'yes' : 'no';
-  return cons(number, rightAnswer);
+  const question = String(number);
+  return cons(question, rightAnswer);
 };
 
-const game = () => runGame(gameRule, generateGameData);
-
-export default game;
+export default () => runGame(gameRule, generateGameData);

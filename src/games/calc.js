@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { cons } from 'hexlet-pairs';
-import { randomDigit } from '..';
+import randomDigit from '../utils';
 import runGame from '../brain-games';
 
 const gameRule = 'What is the result of the expression?';
@@ -24,9 +24,7 @@ const generateGameData = () => {
       rightAnswer = number1 * number2;
       break;
   }
-  return cons(question, rightAnswer);
+  return cons(question, String(rightAnswer));
 };
 
-const game = () => runGame(gameRule, generateGameData);
-
-export default game;
+export default () => runGame(gameRule, generateGameData);
