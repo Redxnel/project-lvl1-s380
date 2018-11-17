@@ -11,13 +11,12 @@ const generateGameData = () => {
   const firstElement = randomDigit(100);
   const step = randomDigit(10);
   const hiddenElementPosition = randomDigit(progressionLength);
+  const rightAnswer = firstElement + step * hiddenElementPosition;
 
   let question = '';
-  let rightAnswer = 0;
   for (let i = 1; i <= progressionLength; i += 1) {
     const element = firstElement + step * i;
     if (i === hiddenElementPosition) {
-      rightAnswer = element;
       question += i === progressionLength ? '..' : '.. ';
     } else {
       question += i === progressionLength ? `${element}` : `${element} `;
