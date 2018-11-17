@@ -19,9 +19,9 @@ const generateGameData = () => {
     element = firstElement + step * i;
     if (i === hiddenElementPosition) {
       rightAnswer = element;
-      question += '.. ';
+      question += i === progressionLength - 1 ? '..' : '.. ';
     } else {
-      question += `${element} `;
+      question += i === progressionLength - 1 ? `${element}` : `${element} `;
     }
   }
 

@@ -16,17 +16,8 @@ const runGame = (gameRule, generateGameData) => {
 
   for (let i = 0; i < quantityQuestions; i += 1) {
     const gameExpression = generateGameData();
-    const taskQuestion = car(gameExpression);
+    const question = car(gameExpression);
     const rightAnswer = cdr(gameExpression);
-    let question = '';
-    for (let j = 0; j < taskQuestion.length; j += 1) {
-      if (j === taskQuestion - 1) {
-        break;
-      } else {
-        question += taskQuestion[j];
-      }
-    }
-
     console.log(`Question: ${question}`);
     const answer = gamerAnswer();
     if (rightAnswer === answer) {
