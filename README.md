@@ -46,6 +46,6 @@ brain-prime
 
 ### Пример установки и запуска игр.
 
-![](https://wmpics.pics/di-YEN4.gif)
+![](https://wmpics.pics/di-EGUU.gif)
 
 ### Успехов!
