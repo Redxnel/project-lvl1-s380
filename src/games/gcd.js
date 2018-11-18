@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 import { cons } from 'hexlet-pairs';
 import randomDigit from '../utils';
 import runGame from '../brain-games';

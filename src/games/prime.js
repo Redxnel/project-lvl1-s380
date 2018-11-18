@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 import { cons } from 'hexlet-pairs';
 import randomDigit from '../utils';
 import runGame from '../brain-games';
@@ -11,9 +10,9 @@ const isPrime = (num) => {
     if (digit === divisor) {
       return true;
     }
-    return digit % divisor === 0 || digit <= 1 ? false : primeCheck(digit, divisor + 1);
+    return digit % divisor === 0 ? false : primeCheck(digit, divisor + 1);
   };
-  return primeCheck(num, smallestDivisor);
+  return num <= 1 ? false : primeCheck(num, smallestDivisor);
 };
 
 const generateGameData = () => {
