@@ -8,10 +8,10 @@ const gameRule = 'Answer "yes" if given number is prime. Otherwise answer "no".'
 const isPrime = (num) => {
   const smallestDivisor = 2;
   const primeCheck = (digit, divisor) => {
-    if (num === divisor) {
+    if (digit === divisor) {
       return true;
     }
-    return num % divisor === 0 || num <= 1 ? false : primeCheck(digit, divisor + 1);
+    return digit % divisor === 0 || digit <= 1 ? false : primeCheck(digit, divisor + 1);
   };
   return primeCheck(num, smallestDivisor);
 };
