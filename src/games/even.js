@@ -5,9 +5,11 @@ import runGame from '../brain-games';
 
 const gameRule = 'Answer "yes" if number even otherwise answer "no".';
 
+const isEven = num => num % 2 === 0;
+
 const generateGameData = () => {
   const number = randomDigit(100);
-  const rightAnswer = number % 2 === 0 ? 'yes' : 'no';
+  const rightAnswer = isEven(number) ? 'yes' : 'no';
   const question = String(number);
   return cons(question, rightAnswer);
 };
